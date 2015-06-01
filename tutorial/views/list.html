@@ -1,15 +1,19 @@
-phones:{{phones.length}}<br/>
-filter: <input type="text" ng-model="search"/><br/>
-order: <select name="orderPhone" id="" ng-model = "orderPhone">
-    <option value="name">名称</option>
-    <option value="price">价格</option>
-</select>
 <div>
-    <ul ng-repeat="phone in phones | filter : search | orderBy : orderPhone">
-        <li>
-            <input type="checkbox" name="buy"/>
-            <span>{{phone.name}}</span>
-            <span>{{phone.price}}</span>
-        </li>
-    </ul>
+    phones:{{phones.length}}<br/>
+    filter: <input type="text" ng-model="search"/><br/>
+    order: <select name="orderPhone" id="" ng-model = "orderPhone">
+        <option value="name">名称</option>
+        <option value="price">价格</option>
+    </select>
+    <div>
+        <ul ng-repeat="phone in phones | filter : search | orderBy : orderPhone">
+            <li>
+                <input type="checkbox" name="buy"/>
+                <a href="#/{{phone.name}}">
+                    <span>{{phone.name}}</span>
+                    <span>{{phone.price}}</span>
+                </a>
+            </li>
+        </ul>
+    </div>
 </div>

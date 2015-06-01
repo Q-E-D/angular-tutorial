@@ -1,10 +1,15 @@
-var phoneApp = angular.module("phoneApp", []);
+var phoneApp = angular.module("phoneApp", ['ngRoute', 'phoneControllers']);
 
-phoneApp.controller("phoneList", function($scope, $http){
-
-    $http.get("js/data.json").success(function(data){
-        $scope.phones = data;
-    });
-
-    $scope.orderPhone = "name";
-});
+phoneApp.config(['$routeProvider', function($rp){
+    $rp.when("/", {
+            templateUrl: "views/list.html",
+            controller: "phoneList"
+        }).
+        when("/:name", {
+            templateUrl: "views/detail.html",
+            controller: "phoneDetail"
+        })
+        .otherwise({
+            redirectTo: "/"
+        });
+}]);
