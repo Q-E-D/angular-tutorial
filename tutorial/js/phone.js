@@ -1,4 +1,4 @@
-var phoneApp = angular.module("phoneApp", ['ngRoute', 'phoneControllers']);
+var phoneApp = angular.module("phoneApp", ['ngRoute', 'phoneControllers', 'phoneFilters']);
 
 phoneApp.config(['$routeProvider', function($rp){
     $rp.when("/", {
